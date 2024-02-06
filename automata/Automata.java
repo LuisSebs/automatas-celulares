@@ -1,4 +1,4 @@
-package src;
+package automata;
 
 import processing.core.PApplet;
 
@@ -20,7 +20,9 @@ public class Automata extends PApplet {
     public void setup(){
         frameRate(60);
         background(200);
-        modelo = new ModeloAutomata(ancho, alto, new Regla90());
+        // Agrega aquí la regla que quieras usar
+        Regla regla = new Regla90();
+        modelo = new ModeloAutomata(ancho, alto, regla);
     }
 
     @Override
@@ -97,7 +99,7 @@ public class Automata extends PApplet {
     }
 
     public static void main(String[] args){
-        PApplet.main(new String[] { "src.Automata" });
+        PApplet.main(new String[] { "automata.Automata" });
     }
 
 }
