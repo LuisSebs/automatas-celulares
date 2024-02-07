@@ -17,22 +17,16 @@ Ejecuta el siguiente comando para compilar todas las clases
 javac -d ./classes -cp lib/core.jar:. automata/*.java
 ```
 
-Ejecuta el siguiente comando.
+Ahora ejecutamos el programa con la regla que se quiera aplicar: 
 
 ```bash
-java -cp ./classes:lib/core.jar automata.Automata
+java -cp ./classes:lib/core.jar automata.Automata <regla>
 ```
 
-Al ejecutar el programa se mostara por pantalla un autómata celular usando la **regla90**. Puedes crear mas reglas y usarlas en el automata. Para esto crea una nueva clase en un archivo por separado con una estructura similar al de `Regla90.java`. Al final solo pasalo como argumento al crear el modelo del automata dentro del archivo `Automata.java`.
+Por ejemplo, en el siguiente comando estamos aplicando la regla 150:
 
-## `Automata.java`
-```java
-@Override
-    public void setup(){
-        frameRate(60);
-        background(200);
-        // Agrega aquí la regla que quieras usar
-        Regla regla = new Regla90();
-        modelo = new ModeloAutomata(ancho, alto, regla);
-    }
+```bash
+java -cp ./classes:lib/core.jar automata.Automata 150
 ```
+
+Si se ejcuta sin especificar alguna regla se aplicara la regla 90 por default. 

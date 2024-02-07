@@ -20,8 +20,16 @@ public class Automata extends PApplet {
     public void setup(){
         frameRate(60);
         background(200);
-        // Agrega aquí la regla que quieras usar
-        Regla regla = new Regla90();
+        String binario = args[0];
+        int b1 = parseInt(""+binario.charAt(0));
+        int b2 = parseInt(""+binario.charAt(1));
+        int b3 = parseInt(""+binario.charAt(2));
+        int b4 = parseInt(""+binario.charAt(3));
+        int b5 = parseInt(""+binario.charAt(4));
+        int b6 = parseInt(""+binario.charAt(5));
+        int b7 = parseInt(""+binario.charAt(6));
+        int b8 = parseInt(""+binario.charAt(7));
+        Regla regla = new Regla(b1, b2, b3, b4, b5, b6, b7, b8);
         modelo = new ModeloAutomata(ancho, alto, regla);
     }
 
@@ -99,7 +107,14 @@ public class Automata extends PApplet {
     }
 
     public static void main(String[] args){
-        PApplet.main(new String[] { "automata.Automata" });
+        String binario = "01011010"; // Regla 90 por default
+        if(args.length > 0){
+            binario = Integer.toBinaryString(parseInt(args[0]));
+            for ( int i = binario.length() ;  i < 8; i++ ){
+                binario = "0" + binario;
+            }
+        }
+        PApplet.main(new String[] { "automata.Automata", binario });
     }
 
 }
